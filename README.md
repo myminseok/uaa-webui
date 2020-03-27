@@ -1,3 +1,15 @@
+
+# create uaa admin client
+```
+# sshing into ospman VM
+
+uaac target https://uaa.system.pcfdemo.net --skip-ssl-validation
+uaac token client get admin -s <uaa-admin-client-secret>
+uaac client add uaa-admin-client --authorities "zones.read clients.read clients.secret clients.write uaa.admin clients.admin scim.write scim.read" --authorized_grant_types=password,client_credentials
+uaac secret set uaa-admin-client -s <uaa-admin-client-secret>
+```
+
+
 # UAA WebUI
 [![Go Report Card](https://goreportcard.com/badge/github.com/shreddedbacon/uaa-webui)](https://goreportcard.com/report/github.com/shreddedbacon/uaa-webui)
 
